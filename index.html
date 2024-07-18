@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to August 4, 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .countdown {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .countdown h1 {
+          font-size: 1.5em;
+          margin-bottom: 20px;
+        }
+        .countdown p {
+          font-weight: bolder;
+          font-size: 8em;
+          margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1>Countdown to August 4, 2024</h1>
+        <p id="timer"></p>
+    </div>
+
+    <script>
+        function countdown() {
+            const endDate = new Date('August 4, 2024 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = endDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').innerHTML = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (timeLeft < 0) {
+                document.getElementById('timer').innerHTML = "The date has passed!";
+            }
+        }
+
+        setInterval(countdown, 1000);
+        countdown(); // Initial call to display the countdown immediately
+    </script>
+</body>
+</html>
+ç
